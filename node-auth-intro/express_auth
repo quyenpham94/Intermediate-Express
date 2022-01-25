@@ -1,0 +1,531 @@
+\c employees_db
+\d
+\q
+\c employees_db
+\q
+\c employees_db
+\d
+\d
+SELECT * FROM department
+;
+SELECT * FROM departments
+;
+\d+ employees
+SELECT * FROM departments
+;
+SELECT * FROM departments;
+SELECT * FROM employees;
+SELECT * FROM employees;
+SELECT * FROM departments;
+SELECT * FROM employees;
+SELECT * FROM employees WHERE id=1;
+SELECT * FROM departments WHERE dept_code="mktg";
+SELECT * FROM employees;
+SELECT * FROM departments;
+SELECT * FROM employees;
+SELECT * FROM employees;
+SELECT * FROM departments;
+\q
+\q
+\c employees_db
+\dt
+INSERT INTO employees (name, state) VALUES ('freelancer mcgee', 'CO');
+SELECT * FROM departments;
+SELECT * FROM employees;
+SELECT employees.name, departments.dept_code, departments.phone FROM employees LEFT JOIN departments ON employees.dept_code = departments.dept_code;
+SELECT * FROM departments;
+SELECT employees.name, departments.dept_code, departments.phone FROM employees RIGHT JOIN departments ON employees.dept_code = departments.dept_code;
+clear
+\dt
+SELECT * FROM projects;
+SELECT * FROM projects;
+SELECT * FROM employees;
+INSER INTO employees_projects (proj_code, emp_id) VALUES('boat',1)
+;
+INSERT INTO employees_projects (proj_code, emp_id) VALUES('boat',1)
+;
+INSERT INTO employees_projects (proj_code, emp_id) VALUES('car',1)
+;
+\q
+\c employees_db
+SELECT * FROM employees;
+SELECT * FROM projects;
+SELECT * FROM departments;
+SELECT * FROM employees;
+SELECT * FROM projects;
+SELECT * FROM employees_prjects;
+SELECT * FROM employees_projects;
+\q
+\c employees_db
+SELECT * FROM employees_projects;
+SELECT * FROM employees_projects;
+SELECT * FROM departments;
+SELECT * FROM projects;
+\q
+\c blogly
+\dt
+SELECT * FROM posts
+;
+SELECT * FROM posts_tags;
+SELECT * FROM tags;
+SELECT * FROM users;
+SELECT * FROM users;
+SELECT * FROM posts;
+SELECT * FROM posts_tags;
+SELECT * FROM posts;
+SELECT * FROM users;
+SELECT * FROM posts;
+SELECT * FROM users;
+SELECT * FROM users;
+SELECT * FROM users;
+SELECT * FROM posts;
+SELECT * FROM posts;
+\q
+\dt
+SELECT * FROM posts;
+SELECT * FROM users;
+\q
+\c blogly
+SELECT * FROM users;
+SELECT * FROM posts;
+SELECT * FROM posts;
+SELECT * FROM users;
+SELECT * FROM users;
+SELECT * FROM users;
+db.drop_all()
+db.create_all()
+SELECT * FROM users;
+SELECT * FROM users;
+SELECT * FROM posts;
+SELECT * FROM posts;
+SELECT * FROM users;
+SELECT * FROM PostTag;
+SELECT * FROM PostTag;
+\q
+\c blogly
+SELECT * FROM PostTag;
+SELECT * FROM posts_tags;
+SELECT * FROM tags;
+\q
+\c todos_db
+\c todos
+ls
+\q
+\c todos_db
+\c todos
+\dt
+\q
+\c todos
+\c todos_db
+\q
+\c todos_db
+\q
+\c todos
+\dt
+SELECT * FROM todosl
+;
+SELECT * FROM todos;
+\q
+\c cupcakes
+\dt
+\q
+\c todos
+SELECT * FROM todos;
+\c auth_demo
+\dt usrs;
+\d+ users;
+SELECT * FROM users;
+\dt
+SELECT * FROM users;
+SELECT * FROM users;
+SELECT * FROM tweets
+;
+\q
+\c feedback
+\d
+\q
+\c feedback
+\dt
+SELECT # FROM feedbackl;
+SELECT # FROM feedback;
+SELECT * FROM feedback;
+\q
+SELECT * FROM feedback;
+\c feedback
+SELECT * FROM feedback;
+\dt
+\dt
+\l
+SELECT * FROM feedback;
+\q
+\c feedback
+SELECT * FROM feedback;
+\dt
+\l
+SELECT * FROM users;
+\q
+\c feedback
+\dt
+SELECT * FROM users;
+SELECT * FROM feedback;
+SELECT * FROM users;
+SELECT * FROM users;
+SELECT * FROM users;
+\dt
+SELECT * FROM feedback;
+\q
+\c feedback
+SELECT * FROM feedback;
+SELECT * FROM users;
+SELECT * FROM users;
+\q
+\c feedback
+SELECT * FROM users;
+\c feedback
+SELECT * FROM feedback;
+SELECT * FROM users;
+SELECT * FROM users;
+SELECT * FROM users;
+SELECT * FROM users;
+SELECT * FROM feedback;
+SELECT * FROM feedback;
+SELECT * FROM users;
+SELECT * FROM users;
+SELECT * FROM feedback;
+SELECT * FROM feedback;
+SELECT * FROM users;
+\q
+\l
+quit()
+\q
+\c playlist-app
+\lt
+\l
+\dt
+\dt
+\q
+\c movies_db
+quit()
+quit()
+\q
+\c playlist-app
+\dt
+\dt
+SELECT * FROM playlist;
+SELECT * FROM playlist_song;
+SELECT * FROM song;
+\q
+\c playlist=app
+\c playlist-app
+\dt
+SELECT * FROM song;
+SELECT * FROM songs;
+SELECT * FROM playlist_song;
+SELECT * FROM playlist_songs;
+SELECT * FROM playlists_songs;
+SELECT * FROM playlists;
+SELECT * FROM playlists;
+\q
+\c warbler
+\dt
+SELECT * FROM users;
+SELECT * FROM messages;
+SELECT * FROM followsl
+SELECT * FROM users;
+SELECT * FROM follows;
+SELECT * FROM users;
+\q
+\c warbler-test
+\dt
+\q
+\c warbler
+\dt
+SELECT * FROM users;
+SELECT * FROM likes;
+SELECT * FROM messages;
+\q
+\c warbler
+SELECT * FROM messages;
+SELECT * FROM messages;
+SELECT * FROM likes;
+SELECT * FROM users;
+SELECT * FROM messages;
+\dt
+SELECT * FROM follows;
+\q
+\c warbler
+\dt
+SELECT * FROM follows;
+SELECT * FROM messages;
+SELECT * FROM likes;
+\q
+\c eat_clean_uer
+\c eat_clean_user
+\l
+\dt
+SELECT * FROM users;
+\q
+\c eat-cleaning-app
+\c eat_clean_user
+\dt
+SELECT * FROM users;
+\q
+\c eat_clean_user
+SELECT * FROM users;
+SELECT * FROM users;
+\q
+\c eat_clean_user
+SELECT * FROM users;
+\dt
+\q
+\c eat_clean_user
+\dt
+SELECT * FROM users;
+SELECT * FROM users;
+SELECT * FROM users;
+SELECT * FROM users;
+\q
+\c eat-clean-user
+\c eat_clean_user
+\dt
+SELECT * FROM users;
+SELECT * FROM meals;
+\q
+\c eat_clean_user
+\dt
+SELECT * FROM meals;
+SELECT * FROM ingredients;
+SELECT * FROM users;
+\q
+SELECT * FROM ingredients;
+\c eat_clean_user
+SELECT * FROM ingredients;
+SELECT * FROM users;
+\dt
+SELECT * FROM meals;
+SELECT * FROM ingredients;
+\qq
+\q
+\c eat_clean_user
+SELECT * FROM ingredients;
+SELECT * FROM meals;
+SELECT * FROM users;
+SELECT * FROM users;
+SELECT * FROM users;
+SELECT * FROM meals;
+SELECT * FROM meals;
+SELECT * FROM ingredients;
+]q
+\q
+\c eat_clean_user
+SELECT * FROM ingredients;
+SELECT * FROM meals;
+SELECT * FROM users;
+SELECT * FROM users;
+SELECT * FROM meals;
+SELECT * FROM meals;
+SELECT * FROM ingredients;
+SELECT * FROM ingredients;
+SELECT * FROM ingredients;
+SELECT * FROM meals;
+SELECT * FROM meals;
+SELECT * FROM ingredients;
+SELECT * FROM users;
+SELECT * FROM ingredients;
+SELECT * FROM ingredients;
+SELECT * FROM users;
+SELECT * FROM ingredients;
+SELECT * FROM meals;
+SELECT * FROM meals;
+SELECT * FROM ingredients;
+SELECT * FROM users;
+SELECT * FROM ingredients;
+SELECT * FROM ingredients;
+SELECT * FROM meals;
+SELECT * FROM meals;
+SELECT * FROM meals;
+SELECT * FROM ingredients;
+\q
+\c eat_clean_user
+SELECT * FROM ingredients;
+\c eat_clean_user
+SELECT * FROM meals;
+\c eat_clean_user
+SELECT * FROM users;
+SELECT * FROM meals;
+SELECT * FROM ingredients;
+\q
+\q
+\c eat_clean_user
+\dt
+SELECT * FROM recipes;
+SELECT * FROM users;
+SELECT * FROM users;
+SELECT * FROM recipes;
+SELECT * FROM recipes;
+\dt
+SELECT * FROM favorites;
+SELECT * FROM recipes;
+SELECT * FROM recipes;
+\dt
+SELECT * FROM users;
+SELECT * FROM recipes;
+\dt
+SELECT * FROM ingredients
+;
+SELECT * FROM ingredients
+;
+SELECT * FROM users;
+SELECT * FROM meals;
+\dt
+SELECT * FROM ingredients
+;
+SELECT * FROM favorites;
+SELECT * FROM ingredients
+;
+SELECT * FROM favorites;
+SELECT * FROM favorites;
+SELECT * FROM meals;
+\q
+\c eat_clean_user
+SELECT * FROM meals;
+\c eat_clean_user
+SELECT * FROM favorites;
+SELECT * FROM users;
+\q
+\c eat_clean_user
+SELECT * FROM meals;
+SELECT * FROM meals;
+SELECT * FROM users;
+SELECT * FROM favorites;
+SELECT * FROM favorites;
+SELECT * FROM favorites;
+SELECT * FROM favorites;
+SELECT * FROM favorites;
+SELECT * FROM favorites;
+SELECT * FROM favorites;
+SELECT * FROM users;
+SELECT * FROM users;
+SELECT * FROM favorites;
+SELECT * FROM favorites;
+SELECT * FROM favorites;
+SELECT * FROM favorites;
+SELECT * FROM favorites;
+SELECT * FROM favorites;
+SELECT * FROM favorites;
+SELECT * FROM meals;
+SELECT * FROM meals;
+SELECT * FROM ingredients;
+SELECT * FROM meals;
+\dt
+SELECT * FROM recipes;
+\q
+\c eat_clean_user
+SELECT * FROM users;
+\q
+\c opfrfkykgpbvxe:3bfe565773af39d931f99d7e1dad7aec2cc5048122d3423b9786f665e7fee157@ec2-34-236-87-247.compute-1.amazonaws.com:5432/de7qcps32fskdd
+\q
+\c eat_clean_user
+\dt
+SELECT * FROM users;
+SELECT * FROM recipes;
+\q
+\q
+\c usersdb
+SELECT * FROM users;
+cleat
+clear
+\w
+\q
+\c usersdb
+SELECT * FROM users;
+\q
+\c biztime
+\q
+\c biztime
+\q
+\c biztime
+SELECT * FROM invoices;
+SELECT * FROM companies;
+\q
+\c biztime
+SELECT * FROM companies;
+\q
+\c biztime
+SELECT * FROM companies;
+SELECT * FROM invoices;
+q\[2~\q
+\q
+\c biztime
+SELECT * FROM invoices;
+SELECT * FROM companies;
+SELECT * FROM ind_com;
+\d
+SELECT * FROM invoices_id_seq;
+\q
+\c biztime
+\d
+\q
+\q
+\c biztime
+\d
+\q
+\c pets_db
+\q
+\c pets_db
+\q
+\c pets_db
+\q
+\c pets_db
+\q
+\q
+ALTER USER my_user_name with password taokobiet174;
+ALTER USER my_user_name with password 'taokobiet174';
+ALTER USER quyen with password 'taokobiet174';
+cp pg_hba.conf-backup pg_hba.conf
+\q
+\c lunchly
+\q
+\c express_auth
+\dt
+\q
+\c express_auth
+\q
+\c express_auth
+CREATE TABLE users
+(
+    username TEXT NOT NULL PRIMARY KEY,
+    password TEXT NOT NULL
+);
+\q
+\c express_auth
+\q
+\c users
+\c express_auth
+\q
+\c express_auth
+CREATE TABLE users
+(
+    username TEXT NOT NULL PRIMARY KEY,
+    password TEXT NOT NULL
+);
+DROP TABLE IF EXISTS users;
+CREATE TABLE users
+(
+    username TEXT NOT NULL PRIMARY KEY,
+    password TEXT NOT NULL
+);
+\dt
+\q
+\c express_auth_test
+\q
+\c express_auth
+\q
+\q
+\dt
+\c express_auth
+\q
+\c express_auth
+\q
+\ express_auth
+\s express_auth

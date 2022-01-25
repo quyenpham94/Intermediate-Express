@@ -1,4 +1,3 @@
-const { process } = require("ipaddr.js");
 const { Client } = require("pg");
 const { DB_URI } = require("./config");
 
