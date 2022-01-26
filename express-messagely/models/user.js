@@ -37,7 +37,7 @@ class User {
 
   static async authenticate(username, password) {
     const result = await db.query(
-      "SELECT password FROM users WHERE usernam = $1",
+      "SELECT password FROM users WHERE username = $1",
       [username]);
     let user = result.rows[0];
     return user && await bcrypt.compare(password, user.password);
@@ -52,7 +52,7 @@ class User {
         WHERE username = $1
         RETURNING username`,
         [username]);
-    if(!username.rows[0]) {
+    if(!result.rows[0]) {
       throw new ExpressError(`No such user: ${username}`, 404);
     }
    }
@@ -91,6 +91,7 @@ class User {
        FROM users
        WHERE username = $1`,
        [username]);
+       
     if(!result.rows[0]){
       throw new ExpressError(`No such user: ${username}`, 404);
     }
@@ -117,8 +118,8 @@ class User {
               m.read_at
        FROM messages AS m
         JOIN users AS u ON m.to_username = u.username
-       WHERE from_username = #1`,
-       [username]),
+       WHERE from_username = $1`,
+       [username]);
     return result.rows.map(m => ({
       id: m.id,
       to_user: {
