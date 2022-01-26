@@ -4,23 +4,22 @@ const express = require("express");
 const app = express();
 const routes = require("./routes/auth");
 const ExpressError = require("./expressError");
+const { authenticateJWT } = require("./middleware/auth")
 
 app.use(express.json());
+app.use(authenticateJWT)
 app.use("/", routes);
 
 
 
-
 /** 404 handler */
-
 app.use(function(req, res, next) {
     const err = new ExpressError("Not Found", 404);
     return next(err);
   });
   
-  /** general error handler */
-  
-  app.use((err, req, res, next) => {
+/** general error handler */
+app.use((err, req, res, next) => {
     res.status(err.status || 500);
   
     return res.json({
@@ -30,4 +29,4 @@ app.use(function(req, res, next) {
   });
   
   
-  module.exports = app;
+module.exports = app;
