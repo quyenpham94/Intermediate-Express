@@ -1,3 +1,8 @@
+
+-- Create a database (with a small amount of starter data) and a test database.
+
+
+
 \echo 'Delete and recreate jobly db?'
 \prompt 'Return for yes or control-C to cancel > ' foo
 
