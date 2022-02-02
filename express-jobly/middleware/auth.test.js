@@ -11,9 +11,6 @@ const {
 
 
 const { SECRET_KEY } = require("../config");
-const { describe } = require("yargs");
-const { expect } = require("@jest/globals");
-const { default: expectationResultFactory } = require("jest-jasmine2/build/expectationResultFactory");
 const testJwt = jwt.sign({ username: "test", isAdmin: false }, SECRET_KEY);
 const badJwt = jwt.sign({ username: "test", isAdmin: false }, "wrong");
 
@@ -148,7 +145,7 @@ describe("ensureCorrectUserOrAdmin", function () {
     };
     ensureCorrectUserOrAdmin(req, res, next);
   });
-  
+
   test("unauth: if anon", function () {
     expect.assertions(1);
     const req = { params: { username: "test" } };

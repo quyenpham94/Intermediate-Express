@@ -1,8 +1,5 @@
 "use strict";
 
-const { expect } = require("@jest/globals");
-const { nextTick } = require("process");
-const { fail } = require("yargs");
 const db = require("../db.js");
 const { BadRequestError, NotFoundError } = require("../expressError");
 const Company = require("./company.js");
@@ -11,6 +8,7 @@ const {
   commonBeforeEach,
   commonAfterEach,
   commonAfterAll,
+  testJobIds,
 } = require("./_testCommon");
 
 beforeAll(commonBeforeAll);
@@ -62,7 +60,7 @@ describe("create", function () {
 /************************************** findAll */
 
 describe("findAll", function () {
-  test("works: no filter", async function () {
+  test("works: all", async function () {
     let companies = await Company.findAll();
     expect(companies).toEqual([
       {
@@ -88,7 +86,7 @@ describe("findAll", function () {
       },
     ]);
   });
-  
+
   test("works: by min employees", async function () {
     let companies = await Company.findAll({ minEmployees: 2 });
     expect(companies).toEqual([
@@ -108,7 +106,7 @@ describe("findAll", function () {
       },
     ]);
   });
-  
+
   test("works: by max employees", async function () {
     let companies = await Company.findAll({ maxEmployees: 2 });
     expect(companies).toEqual([
@@ -130,7 +128,8 @@ describe("findAll", function () {
   });
 
   test("works: by min-max employees", async function () {
-    let companies = await Company.findAll({minEmployees: 1, maxEmployees: 1 });
+    let companies = await Company.findAll(
+        { minEmployees: 1, maxEmployees: 1 });
     expect(companies).toEqual([
       {
         handle: "c1",
@@ -139,10 +138,9 @@ describe("findAll", function () {
         numEmployees: 1,
         logoUrl: "http://c1.img",
       },
-    
     ]);
   });
-  
+
   test("works: by name", async function () {
     let companies = await Company.findAll({ name: "1" });
     expect(companies).toEqual([
@@ -163,16 +161,13 @@ describe("findAll", function () {
 
   test("bad request if invalid min > max", async function () {
     try {
-      await Company.findAll({ minEmployees: 10, maxEmployees: 1});
+      await Company.findAll({ minEmployees: 10, maxEmployees: 1 });
       fail();
-    } catch(err) {
-      expect (err instanceof BadRequestError).toBeTruthy();
+    } catch (err) {
+      expect(err instanceof BadRequestError).toBeTruthy();
     }
-    
-    
   });
 });
-
 
 /************************************** get */
 
@@ -185,12 +180,12 @@ describe("get", function () {
       description: "Desc1",
       numEmployees: 1,
       logoUrl: "http://c1.img",
-      jobs: [                         // add test for job
+      jobs: [
         { id: testJobIds[0], title: "Job1", salary: 100, equity: "0.1" },
-        { id: testJobIds[1], title: "Job1", salary: 200, equity: "0.2" },
-        { id: testJobIds[2], title: "Job1", salary: 300, equity: "0" },
-        { id: testJobIds[3], title: "Job1", salary: null, equity: "null" },
-      ]
+        { id: testJobIds[1], title: "Job2", salary: 200, equity: "0.2" },
+        { id: testJobIds[2], title: "Job3", salary: 300, equity: "0" },
+        { id: testJobIds[3], title: "Job4", salary: null, equity: null },
+      ],
     });
   });
 
