@@ -185,6 +185,12 @@ describe("get", function () {
       description: "Desc1",
       numEmployees: 1,
       logoUrl: "http://c1.img",
+      jobs: [                         // add test for job
+        { id: testJobIds[0], title: "Job1", salary: 100, equity: "0.1" },
+        { id: testJobIds[1], title: "Job1", salary: 200, equity: "0.2" },
+        { id: testJobIds[2], title: "Job1", salary: 300, equity: "0" },
+        { id: testJobIds[3], title: "Job1", salary: null, equity: "null" },
+      ]
     });
   });
 
