@@ -126,7 +126,7 @@ class Company {
     const jobsRes = await db.query(
           `SELECT id, title, salary, equity
            FROM jobs
-           WHERR company_handle = $1
+           WHERE company_handle = $1
            ORDER BY id`,
            [handle],
     );
