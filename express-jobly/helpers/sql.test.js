@@ -1,5 +1,4 @@
 
-const { expect } = require("@jest/globals");
 const { sqlForPartialUpdate } = require("./sql");
 
 describe("sqlForPartialUpdate", function () {

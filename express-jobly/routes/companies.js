@@ -22,7 +22,7 @@ const router = new express.Router();
  *
  * Returns { handle, name, description, numEmployees, logoUrl }
  *
- * Authorization required: login
+ * Authorization required: admin
  */
 
 router.post("/", ensureAdmin, async function (req, res, next) {
@@ -52,7 +52,7 @@ router.post("/", ensureAdmin, async function (req, res, next) {
  * Authorization required: none
  */
 
-
+// retrieving the list of companies or info about company open to everyone.
 router.get("/", async function (req, res, next) {
   const q = req.query;
   // arrive as strings from querystring, but we want as ints
@@ -98,8 +98,9 @@ router.get("/:handle", async function (req, res, next) {
  *
  * Returns { handle, name, description, numEmployees, logo_url }
  *
- * Authorization required: login
+ * Authorization required: admin
  */
+
 
 router.patch("/:handle", ensureAdmin, async function (req, res, next) {
   try {
@@ -120,6 +121,7 @@ router.patch("/:handle", ensureAdmin, async function (req, res, next) {
  *
  * Authorization: admin
  */
+
 
 router.delete("/:handle", ensureAdmin, async function (req, res, next) {
   try {

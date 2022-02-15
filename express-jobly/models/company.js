@@ -67,6 +67,7 @@ class Company {
 
     const { minEmployees, maxEmployees, name } = searchFilters;
 
+    // if min > max, response with a 400 error with message
     if (minEmployees > maxEmployees) {
       throw new BadRequestError("Min employees cannot be greater than max");
     }
