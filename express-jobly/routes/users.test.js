@@ -37,7 +37,7 @@ describe("POST /users", function () {
           isAdmin: false,
         })
         .set("authorization", `Bearer ${adminToken}`);
-    expect(resp.statusCode).toEqual(401);
+    expect(resp.statusCode).toEqual(201);
     expect(resp.body).toEqual({
       user: {
         username: "u-new",

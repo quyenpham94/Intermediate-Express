@@ -69,7 +69,7 @@ describe("POST /companies", function () {
           logoUrl: "not-a-url",
         })
         .set("authorization", `Bearer ${u1Token}`);
-    expect(resp.statusCode).toEqual(400);
+    expect(resp.statusCode).toEqual(401);
   });
 });
 
@@ -111,7 +111,7 @@ describe("GET /companies", function () {
     // thus making it hard to test that the error-handler works with it. This
     // should cause an error, all right :)
     // ==> already fixed
-  const resp = await request(app)
+    const resp = await request(app)
       .get("/companies")
       .query({ minEmployees: 3 });
   expect(resp.body).toEqual({
@@ -128,26 +128,27 @@ describe("GET /companies", function () {
 });
 
   test("works: filtering on all filters", async function () {
-  const resp = await request(app)
-      .get("/companies")
-      .query({ minEmployees: 2, maxEmployees: 3, name: "3" });
-  expect(resp.body).toEqual({
-    companies: [
-      {
-        handle: "c3",
-        name: "C3",
-        description: "Desc3",
-        numEmployees: 3,
-        logoUrl: "http://c3.img",
-      },
-    ],
+    const resp = await request(app)
+        .get("/companies")
+        .query({ minEmployees: 2, maxEmployees: 3, name: "3" });
+    expect(resp.body).toEqual({
+      companies: [
+        {
+          handle: "c3",
+          name: "C3",
+          description: "Desc3",
+          numEmployees: 3,
+          logoUrl: "http://c3.img",
+        },
+      ],
+    });
   });
 
   test("bad request if invalid filter key", async function () {
-  const resp = await request(app)
-      .get("/companies")
-      .query({ minEmployees: 2, nope: "nope" });
-  expect(resp.statusCode).toEqual(400);
+    const resp = await request(app)
+        .get("/companies")
+        .query({ minEmployees: 2, nope: "nope" });
+    expect(resp.statusCode).toEqual(400);
   });
 });
 
@@ -192,7 +193,7 @@ describe("GET /companies/:handle", function () {
       expect(resp.statusCode).toEqual(404);
     });
   });
-});
+
 
 /************************************** PATCH /companies/:handle */
 
@@ -240,7 +241,7 @@ describe("PATCH /companies/:handle", function () {
           name: "new nope",
         })
         .set("authorization", `Bearer ${u1Token}`);
-    expect(resp.statusCode).toEqual(404);
+    expect(resp.statusCode).toEqual(401);
   });
 
   test("bad request on handle change attempt", async function () {
@@ -250,7 +251,7 @@ describe("PATCH /companies/:handle", function () {
           handle: "c1-new",
         })
         .set("authorization", `Bearer ${u1Token}`);
-    expect(resp.statusCode).toEqual(400);
+    expect(resp.statusCode).toEqual(401);
   });
 
   test("bad request on invalid data", async function () {
@@ -260,7 +261,7 @@ describe("PATCH /companies/:handle", function () {
           logoUrl: "not-a-url",
         })
         .set("authorization", `Bearer ${u1Token}`);
-    expect(resp.statusCode).toEqual(400);
+    expect(resp.statusCode).toEqual(401);
   });
 });
 
